@@ -1,4 +1,4 @@
-package com.example.hometask;
+package com.example.hometask.duty;
 
 public enum DutyState {
 
