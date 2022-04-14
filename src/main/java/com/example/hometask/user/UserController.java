@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-
+@RequestMapping("/")
 public class UserController {
 
     private final UserService userService;

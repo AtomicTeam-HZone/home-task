@@ -65,6 +65,43 @@
 
   <main id="main">
 
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Column heading</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr th:each="user : ${users}">
+        <td th:text="${user.getName()}"></td>
+      </tr>
+
+      </tbody>
+    </table>
+
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">Column heading</th>
+      </tr>
+      </thead>
+
+      <tbody>
+
+      <tr th:each="duty : ${duties}">
+        <td th:text="${duty.getId()}"></td>
+        <td th:text="${duty.getName()}"></td>
+      </tr>
+
+      </tbody>
+    </table>
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
       <div class="container">
