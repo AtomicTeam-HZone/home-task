@@ -4,6 +4,7 @@ import java.util.List;
 
 public interface DutyService {
 
-    public List<Duty> findAll();
+    List<Duty> findAll();
 
+    Duty getDuty(Long dutyId);
 }
