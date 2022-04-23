@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Controller
-@RequestMapping(value = "/")
+@RequestMapping("/")
 public class UserController {
 
     private final UserService userService;
@@ -19,6 +19,6 @@ public class UserController {
     public String getAllUsers(Model model){
         List<User> users = userService.findAll();
         model.addAttribute("users", users);
-        return "users";
+        return "index";
     }
 }
