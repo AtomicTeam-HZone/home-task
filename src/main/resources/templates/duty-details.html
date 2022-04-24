@@ -67,7 +67,26 @@
 
     <h2>Duty details</h2>
 
+<!--    th:href="@{'/duties/'+ ${duty.getId()}}">Details</a></td>-->
 
+    <form th:action="@{'/duties/' + ${duty.getId()} + '/asignments/'}" name='f' th:object="${asignment}" method='POST'>
+      <table>
+        <tr>
+          <td>Asign user:</td>
+          <td>
+            <select th:field="*{userId}">
+              <option value=""> -- </option>
+              <option th:each="user : ${users}"
+                      th:value="${user.id}"
+                      th:utext="${user.name}"/>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td><input name="submit" type="submit" value="Asign" /></td>
+        </tr>
+      </table>
+    </form>
 
 
 <!--    <table class="table table-hover">-->

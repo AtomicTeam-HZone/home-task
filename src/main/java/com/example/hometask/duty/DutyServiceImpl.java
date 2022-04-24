@@ -34,5 +34,10 @@ public class DutyServiceImpl implements DutyService {
         return maybeDuty.get();
     }
 
+    @Override
+    public void asignDutyToUser(Long dutyId, Long userId) {
+        // TODO implement method body
+    }
+
 
 }

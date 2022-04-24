@@ -4,7 +4,9 @@ import com.example.hometask.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -29,13 +31,26 @@ public class DutyController {
         Duty dutyDetails = dutyService.getDuty(dutyId);
         model.addAttribute("users", userService.findAll());
         model.addAttribute("duty", dutyDetails);
+        model.addAttribute("asignment", new DutyAsignmentForm());
         return "duty-details";
     }
 
-//    @PostMapping("/duties/{dutyId}/assigments/{userId}")
-//    public String dutyAssigment(@PathVariable Long dutyId, Model model){
-//        Duty dutyDetails = dutyService.getDuty(dutyId);
-//        model.addAttribute("duty", dutyDetails);
-//        return "redirect:/duties";
+    @PostMapping("/duties/{dutyId}/asignments/")
+    public String dutyAssigment(@PathVariable Long dutyId, Model model, @ModelAttribute("asignment") DutyAsignmentForm asignment, BindingResult result){
+        Duty dutyDetails = dutyService.getDuty(dutyId);
+        model.addAttribute("duty", dutyDetails);
+        return "redirect:/duties";
+    }
+
+//    @RequestMapping(value="/people/new", method = RequestMethod.POST)
+//    public String insertData(ModelMap model,
+//                             @ModelAttribute("person") @Valid PersonForm person,
+//                             BindingResult result) {
+//        if (!result.hasErrors()) {
+//            personService.save(person);
+//        }else {
+//            return "add";
+//        }
+//        return "redirect:/people";
 //    }
 }

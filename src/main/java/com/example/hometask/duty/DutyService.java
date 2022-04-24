@@ -7,4 +7,6 @@ public interface DutyService {
     List<Duty> findAll();
 
     Duty getDuty(Long dutyId);
+
+    void asignDutyToUser(Long dutyId, Long userId);
 }

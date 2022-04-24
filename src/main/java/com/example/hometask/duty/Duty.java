@@ -6,6 +6,8 @@ public class Duty {
     private String dutyName;
     private DutyState dutyState;
 
+    private Long asignedUserId;
+
     public Duty() {
     }
 
@@ -37,5 +39,13 @@ public class Duty {
 
     public void setDutyState(DutyState dutyState) {
         this.dutyState = dutyState;
+    }
+
+    public Long getAsignedUserId() {
+        return asignedUserId;
+    }
+
+    public void asignUser(Long asignedUserId){
+        this.asignedUserId = asignedUserId;
     }
 }
