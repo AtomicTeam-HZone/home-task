@@ -36,7 +36,7 @@ public class DutyController {
     }
 
     @PostMapping("/duties/{dutyId}/asignments/")
-    public String dutyAssigment(@PathVariable Long dutyId, Model model, @ModelAttribute("asignment") DutyAsignmentForm asignment, BindingResult result){
+    public String dutyAssigment(@PathVariable Long dutyId, @ModelAttribute("asignment") DutyAsignmentForm asignment, BindingResult result){
         dutyService.asignDutyToUser(dutyId, asignment.getUserId());
         return "redirect:/duties";
     }

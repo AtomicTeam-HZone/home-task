@@ -78,7 +78,7 @@
               <option value=""> -- </option>
               <option th:each="user : ${users}"
                       th:value="${user.id}"
-                      th:utext="${user.name}"/>
+                      th:text="${user.name}"/>
             </select>
           </td>
         </tr>
