@@ -31,14 +31,13 @@ public class DutyController {
         Duty dutyDetails = dutyService.getDuty(dutyId);
         model.addAttribute("users", userService.findAll());
         model.addAttribute("duty", dutyDetails);
-        model.addAttribute("asignment", new DutyAsignmentForm());
+        model.addAttribute("asignment", new DutyAsignmentForm(dutyDetails.getAsignedUserId()));
         return "duty-details";
     }
 
     @PostMapping("/duties/{dutyId}/asignments/")
-    public String dutyAssigment(@PathVariable Long dutyId, Model model, @ModelAttribute("asignment") DutyAsignmentForm asignment, BindingResult result){
-        Duty dutyDetails = dutyService.getDuty(dutyId);
-        model.addAttribute("duty", dutyDetails);
+    public String dutyAssigment(@PathVariable Long dutyId, @ModelAttribute("asignment") DutyAsignmentForm asignment, BindingResult result){
+        dutyService.asignDutyToUser(dutyId, asignment.getUserId());
         return "redirect:/duties";
     }
 
