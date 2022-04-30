@@ -27,7 +27,7 @@ public class DutyServiceImpl implements DutyService {
     public Duty getDuty(Long dutyId) {
         Duty maybeDuty = duties.get(dutyId);
 
-        if(maybeDuty==null){
+        if (maybeDuty == null) {
             throw new ResponseStatusException(
                     HttpStatus.NOT_FOUND, "Actor Not Found");
         }
@@ -43,5 +43,8 @@ public class DutyServiceImpl implements DutyService {
         duties.put(dutyId, duty);
     }
 
-
+    public List<Duty> addDuty(Duty duty) {
+        duties.put(duties.size() + 1L, duty);
+        return findAll();
+    }
 }

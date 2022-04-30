@@ -82,6 +82,8 @@
         <td th:text="${duty.getDutyState()}"></td>
         <td><a class="btn btn-primary" th:href="@{'/duties/'+ ${duty.getId()}}">Details</a></td>
       </tr>
+      <tr><td><a class="btn btn-primary" th:href="@{'/duties/add'}">Add Duty</a></td></tr>
+
 
       </tbody>
     </table>

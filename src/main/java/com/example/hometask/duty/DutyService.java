@@ -9,4 +9,6 @@ public interface DutyService {
     Duty getDuty(Long dutyId);
 
     void asignDutyToUser(Long dutyId, Long userId);
+
+    public List<Duty> addDuty(Duty duty);
 }

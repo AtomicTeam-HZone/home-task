@@ -9,6 +9,7 @@ public class Duty {
     private Long asignedUserId;
 
     public Duty() {
+        this.dutyState = DutyState.TODO;
     }
 
     public Duty(Long id, String dutyName, DutyState dutyState) {

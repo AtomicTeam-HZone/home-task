@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.thymeleaf.model.IModel;
 
 import java.util.List;
 
@@ -41,6 +42,17 @@ public class DutyController {
         return "redirect:/duties";
     }
 
+    @GetMapping("duties/add")
+    public String addDuty(Model model){
+        model.addAttribute("duty", new Duty());
+        return "new-duty";
+    }
+
+    @PostMapping("duties/add")
+    public String addDuty(@ModelAttribute Duty duty){
+        dutyService.addDuty(duty);
+        return "redirect:/duties";
+    }
 //    @RequestMapping(value="/people/new", method = RequestMethod.POST)
 //    public String insertData(ModelMap model,
 //                             @ModelAttribute("person") @Valid PersonForm person,
